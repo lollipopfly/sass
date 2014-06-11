@@ -8,14 +8,6 @@ And, that's it.
 
 You need to have Compass installed for it to work properly.
 
-Structure
-=============
-`/sass/lib/base` - all the mixins and libs needed for us.
-
-`/sass/screen.sass` - agregates all .sass files.
-
-`/sass/main.sass` - styles for the mainpage.
-
 Naming blocks
 =============
 I use BEM naming, meaning `.block` for independent block. `.block__element` for elements inside that block. And `.block_modification` for modification of the block.
