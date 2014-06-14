@@ -36,3 +36,16 @@ $white: #fff;
 * MAIN STYLES
 * ----------------------------------------------------------------------------------------------------
 */
+
+.btn {
+	display: inline-block;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	line-height: 0;
+	clear: both;
+	visibility: hidden;
+}
