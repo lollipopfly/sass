@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
+    
     uglify: {
       build: {
         src: ['js/libs/jquery.js', 'js/common.js'],
@@ -20,6 +21,17 @@ module.exports = function(grunt) {
             dest: 'css/style.css'
           },
       },
+
+      imagemin: {
+          dynamic: {
+            files: [{
+              expand: true,
+              cwd: 'images/',
+              src: ['*.{png,jpg,gif}'],
+              dest: 'images/build/'
+            }]
+          }
+        },
 
       watch: {
         scripts: {
@@ -40,8 +52,10 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-newer');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
 
   // Default task(s).
   grunt.registerTask('default', ['autoprefixer', 'uglify', 'watch']);
