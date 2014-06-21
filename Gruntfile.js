@@ -22,17 +22,6 @@ module.exports = function(grunt) {
           },
       },
 
-      // imagemin: {
-      //     dynamic: {
-      //       files: [{
-      //         expand: true,
-      //         cwd: 'images/',
-      //         src: ['*.{png,jpg,gif}'],
-      //         dest: 'images/build/'
-      //       }]
-      //     }
-      //   },
-
       watch: {
         scripts: {
           files: ['js/**/*.js'],
@@ -49,8 +38,30 @@ module.exports = function(grunt) {
 
   });
 
+  /************ PRODACTION ***********/
+
+  // cssmin: {
+  //   combine: {
+  //       files: {
+  //         'css/style.min.css': ['css/jquery.bxslider.css', 'css/style.css']
+  //       }
+  //     },
+  // },
+
+  // imagemin: {
+  //     dynamic: {
+  //       files: [{
+  //         expand: true,
+  //         cwd: 'images/',
+  //         src: ['*.{png,jpg,gif}'],
+  //         dest: 'images/build/'
+  //       }]
+  //     }
+  //   },
+
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-newer');
@@ -58,6 +69,5 @@ module.exports = function(grunt) {
 
 
   // Default task(s).
-  grunt.registerTask('default', ['autoprefixer', 'uglify', 'watch']);
-  
+  grunt.registerTask('default', ['uglify', 'autoprefixer', 'watch']);  
 };
