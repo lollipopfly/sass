@@ -36,13 +36,3 @@ $black: #000;
 * MAIN STYLES
 * ----------------------------------------------------------------------------------------------------
 */
-
-
-.clearfix:after {
-	content: "";
-	display: block;
-	height: 0;
-	line-height: 0;
-	clear: both;
-	visibility: hidden;
-}
