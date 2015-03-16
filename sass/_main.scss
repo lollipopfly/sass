@@ -4,12 +4,15 @@
 * ----------------------------------------------------------------------------------------------------
 */
 
+@import "compass/css3";
 @import "compass/reset";
 @import "compass/typography";
 @import "compass/utilities/sprites";
-// $social-layout: diagonal;
+// $social-spacing: 2px;
+// $social-layout: horizontal;
 // @import "social/*.png";
-// $main-layout: diagonal;
+// $main-spacing: 1px;
+// $main-layout: horizontal;
 // @import "main/*.png";
 // $social-sprite-dimensions: true;
 // $main-sprite-dimensions: true;
@@ -36,3 +39,28 @@ $black: #000;
 * MAIN STYLES
 * ----------------------------------------------------------------------------------------------------
 */
+
+// Stcky Footer
+html, body {
+	height: 100%;
+}
+
+.wrap {
+	min-height: 100%;
+	/* equal to footer height */
+	margin-bottom: -142px; 
+}
+
+.wrap:after {
+	content: "";
+	display: block;
+}
+
+.footer, .wrap:after { 
+	height: 142px; 
+}
+
+.footer { 
+	background: orange;
+}
+
