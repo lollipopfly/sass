@@ -40,6 +40,15 @@ $black: #000;
 * ----------------------------------------------------------------------------------------------------
 */
 
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	line-height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
 // Stcky Footer
 html, body {
 	height: 100%;
@@ -48,7 +57,7 @@ html, body {
 .wrap {
 	min-height: 100%;
 	/* equal to footer height */
-	margin-bottom: -142px; 
+	margin-bottom: -142px;
 }
 
 .wrap:after {
@@ -56,11 +65,11 @@ html, body {
 	display: block;
 }
 
-.footer, .wrap:after { 
-	height: 142px; 
+.footer, .wrap:after {
+	height: 142px;
 }
 
-.footer { 
+.footer {
 	background: orange;
 }
 
