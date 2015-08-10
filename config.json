@@ -384,16 +384,10 @@
     "print.less",
     "grid.less",
     "forms.less",
-    "responsive-utilities.less",
+    "glyphicons.less",
     "navs.less",
-    "navbar.less",
-    "component-animations.less",
-    "dropdowns.less"
+    "navbar.less"
   ],
-  "js": [
-    "dropdown.js",
-    "collapse.js",
-    "transition.js"
-  ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=4724e4b828c6bf3446dd"
+  "js": [],
+  "customizerUrl": "http://getbootstrap.com/customize/?id=6a7d700c8b2b538c7b0e"
 }
