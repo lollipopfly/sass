@@ -1,24 +1,5 @@
 /**
 * ----------------------------------------------------------------------------------------------------
-* @IMPORTS
-* ----------------------------------------------------------------------------------------------------
-*/
-
-@import "compass/css3";
-@import "compass/reset";
-@import "compass/typography";
-@import "compass/utilities/sprites";
-// $social-spacing: 2px;
-// $social-layout: horizontal;
-// @import "social/*.png";
-// $main-spacing: 1px;
-// $main-layout: horizontal;
-// @import "main/*.png";
-// $social-sprite-dimensions: true;
-// $main-sprite-dimensions: true;
-
-/**
-* ----------------------------------------------------------------------------------------------------
 * FONTS
 * ----------------------------------------------------------------------------------------------------
 */
@@ -47,6 +28,7 @@ $black: #000;
 	line-height: 0;
 	clear: both;
 	visibility: hidden;
+	display: inline-block;
 }
 
 // Stcky Footer
@@ -73,8 +55,14 @@ img {
 	height: auto;
 }
 
-a {}
+a {
+	color:red;
+}
 
-h2 {}
+h2 {
+	color:red;
+}
 
-h3 {}
+h3 {
+	color:red;
+}

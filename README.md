@@ -1,1 +1,1 @@
-Sass Boilerplate for generic CSS/HTML
+Simple sass template with grunt js & Postcss
