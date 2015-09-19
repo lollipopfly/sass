@@ -1,9 +1,10 @@
 var gulp = require('gulp'),
+	// csswring = require('csswring'),
 	postcss = require('gulp-postcss'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('autoprefixer'),
 	spritesmith = require('gulp.spritesmith'),
-	// csswring = require('csswring'),
+	rucksack = require('gulp-rucksack'),
 	merge = require('merge-stream');
 
 // Sass
@@ -11,6 +12,7 @@ gulp.task('sass', function() {
 	var processors = [
 	       // csswring,
 	       autoprefixer({ browsers: ['last 20 versions'] }),
+	       require('postcss-font-magician')({}),
 	   ];
 
 	return gulp.src('sass/style.scss')
@@ -18,7 +20,6 @@ gulp.task('sass', function() {
 		.pipe(postcss(processors))
 		.pipe(gulp.dest('css/'));
 });
-
 
 // Sprites
 gulp.task('sprite', function () {

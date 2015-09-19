@@ -90,9 +90,3 @@ h2 {
 
 h3 {
   color: red; }
-
-p {
-  color: red;
-  -webkit-transition: all 1s;
-       -o-transition: all 1s;
-          transition: all 1s; }
