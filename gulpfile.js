@@ -5,6 +5,7 @@ var gulp = require('gulp'),
 	autoprefixer = require('autoprefixer'),
 	spritesmith = require('gulp.spritesmith'),
 	rucksack = require('gulp-rucksack'),
+	browserSync = require('browser-sync').create(),
 	merge = require('merge-stream');
 
 // Sass
@@ -37,6 +38,18 @@ gulp.task('sprite', function () {
 
    return merge(imgStream, cssStream);
   // return spriteData.pipe(gulp.dest('css/'));
+});
+
+
+gulp.task('serve', ['sass'], function() {
+
+    browserSync.init({
+        server: ""
+    });
+
+    // gulp.watch("/sass/*.scss", { interval: 500 }, ['sass']);
+    gulp.watch("css/style.css").on('change', browserSync.reload);
+    gulp.watch("index.html").on('change', browserSync.reload);
 });
 
 // Watch
