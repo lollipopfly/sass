@@ -4,7 +4,6 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('autoprefixer'),
 	spritesmith = require('gulp.spritesmith'),
-	rucksack = require('gulp-rucksack'),
 	browserSync = require('browser-sync').create(),
 	merge = require('merge-stream');
 
