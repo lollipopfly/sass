@@ -4,7 +4,6 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
-    "csswring": "^4.0.0",
     "gulp": "^3.9.0",
     "gulp-postcss": "^6.0.0",
     "gulp-uglify": "^1.4.0",

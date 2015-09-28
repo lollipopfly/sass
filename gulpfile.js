@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-	// csswring = require('csswring'),
 	postcss = require('gulp-postcss'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('autoprefixer'),
@@ -10,7 +9,6 @@ var gulp = require('gulp'),
 // Sass
 gulp.task('sass', function() {
 	var processors = [
-	       // csswring,
 	       autoprefixer({ browsers: ['last 20 versions'] }),
 	       require('postcss-font-magician')({}),
 	   ];
