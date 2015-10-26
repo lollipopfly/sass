@@ -1,1 +1,1 @@
-Simple sass template with grunt js & Postcss
+Simple boilerplate with Gulp & Postcss.
