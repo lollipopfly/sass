@@ -19,10 +19,11 @@ gulp.task('sass', function() {
 	];
 
 	return gulp.src('sass/style.scss')
-		.pipe(sass())
+		.pipe(sass().on('error', error))
 		.pipe(postcss(processors))
 		.pipe(gulp.dest('css/'));
 });
+
 
 /*------------------------------------*\
     Sprites
@@ -75,5 +76,15 @@ gulp.task('watch', function() {
 gulp.task('default', ['sass', 'watch']);
 
 
+/**
+***************************************************************
+* =FUNCTIONS
+***************************************************************
+**/
 
+// function like a plumber js
+function error(error) {
+	console.log(error.toString());
+	this.emit('end');
+}
 
