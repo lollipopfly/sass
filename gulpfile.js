@@ -5,6 +5,7 @@ var gulp         = require('gulp'),
 	browserSync  = require('browser-sync').create(),
 	selectors    = require('postcss-custom-selectors'),
 	spritesmith  = require('gulp.spritesmith'),
+	plumber      = require('gulp-plumber'),
 	merge        = require('merge-stream');
 
 /*------------------------------------*\
@@ -19,7 +20,8 @@ gulp.task('sass', function() {
 	];
 
 	return gulp.src('sass/style.scss')
-		.pipe(sass().on('error', error))
+		.pipe(plumber())
+		//.pipe(sass().on('error', error))
 		.pipe(postcss(processors))
 		.pipe(gulp.dest('css/'));
 });
