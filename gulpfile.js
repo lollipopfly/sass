@@ -67,7 +67,7 @@ gulp.task('serve', ['sass'], function() {
 \*------------------------------------*/
 
 gulp.task('watch', function() {
-	gulp.watch('sass/style.scss', { interval: 500 }, ['sass']);
+	gulp.watch('sass/**/*.scss', { interval: 500 }, ['sass']);
 	gulp.watch('images/main/*.png', { interval: 500 }, ['sprite']);
 });
 
