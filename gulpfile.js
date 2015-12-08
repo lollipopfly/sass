@@ -2,11 +2,12 @@ var gulp         = require('gulp'),
 	postcss      = require('gulp-postcss'),
 	browserSync  = require('browser-sync').create(),
 	sass         = require('gulp-sass'),
+	sourcemaps   = require('gulp-sourcemaps'),
+	size         = require('postcss-size'),
 	autoprefixer = require('autoprefixer'),
 	concat       = require('gulp-concat'),
 	uglify       = require('gulp-uglify'),
 	selectors    = require('postcss-custom-selectors'),
-	size         = require('postcss-size'),
 	spritesmith  = require('gulp.spritesmith'),
 	plumber      = require('gulp-plumber'),
 	notify       = require("gulp-notify"),
@@ -24,15 +25,18 @@ gulp.task('sass', function() {
 	 size,
   ];
 
-  return gulp.src(['sass/reset.scss',
+  return gulp.src([
+  		  'sass/reset.scss',
 		  'sass/main.scss',
 		  'css/sprite.css',
 		  'sass/style.scss',])
+	.pipe(sourcemaps.init())
 	.pipe(plumber())
 	.pipe(concat('style.css'))
 	//.pipe(sass().on('error', error))
 	.pipe(sass({outputStyle: 'compressed'}))
 	.pipe(postcss(processors))
+	.pipe(sourcemaps.write('../map/'))
 	.pipe(gulp.dest('css/'));
 });
 
