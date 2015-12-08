@@ -76,7 +76,8 @@ gulp.task('sprite', function () {
 \*------------------------------------*/
 
 gulp.task('compress', function() {
-  return gulp.src(['js/libs/jquery.min.js',
+	return gulp.src([
+					'js/libs/jquery.js',
 					'js/libs/bootstrap.min.js',
 					'js/common.js'])
 		.pipe(plumber())
