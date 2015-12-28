@@ -83,6 +83,20 @@ h3 {
 	color:red;
 }
 
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+	border: #e3e3e3;
+	outline: none;
+	height: 40px;
+	padding-left: 10px;
+}
+
+textarea {
+	height: auto;
+}
+
 
 /**
 * ----------------------------------------------------------------------------------------------------
