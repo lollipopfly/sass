@@ -388,12 +388,16 @@
     "navs.less",
     "navbar.less",
     "component-animations.less",
-    "dropdowns.less"
+    "dropdowns.less",
+    "tooltip.less",
+    "modals.less"
   ],
   "js": [
     "dropdown.js",
+    "modal.js",
+    "tooltip.js",
     "collapse.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=8ee8ce6006dce33a1bf4"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=9591083d36a42e971a90"
 }
