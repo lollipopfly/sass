@@ -134,7 +134,7 @@
     "@grid-gutter-width": "20px",
     "@grid-float-breakpoint": "@screen-sm-min",
     "@grid-float-breakpoint-max": "(@grid-float-breakpoint - 1)",
-    "@container-tablet": "765px",
+    "@container-tablet": "754px",
     "@container-sm": "@container-tablet",
     "@container-desktop": "(920px + @grid-gutter-width)",
     "@container-md": "@container-desktop",
@@ -388,16 +388,12 @@
     "navs.less",
     "navbar.less",
     "component-animations.less",
-    "dropdowns.less",
-    "tooltip.less",
-    "modals.less"
+    "dropdowns.less"
   ],
   "js": [
     "dropdown.js",
-    "modal.js",
-    "tooltip.js",
     "collapse.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=9137204ef30d05f2fc05"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=8ee8ce6006dce33a1bf4"
 }
