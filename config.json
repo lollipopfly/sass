@@ -134,7 +134,7 @@
     "@grid-gutter-width": "20px",
     "@grid-float-breakpoint": "@screen-sm-min",
     "@grid-float-breakpoint-max": "(@grid-float-breakpoint - 1)",
-    "@container-tablet": "754px",
+    "@container-tablet": "753px",
     "@container-sm": "@container-tablet",
     "@container-desktop": "(920px + @grid-gutter-width)",
     "@container-md": "@container-desktop",
