@@ -26,7 +26,6 @@ gulp.task('sass', function() {
   ];
 
   return gulp.src([
-  		  'sass/reset.scss',
 		  'sass/main.scss',
 		  'css/sprite.css',
 		  'sass/style.scss',])
