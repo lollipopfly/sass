@@ -28,6 +28,8 @@ gulp.task('sass', function() {
   		  'css/bootstrap.min.css',
 		  'sass/main.scss',
 		  'css/sprite.css',
+		  'node_modules/slick-carousel/slick/slick.css',
+		  'node_modules/slick-carousel/slick/slick-theme.css',
 		  'sass/style.scss',])
 	.pipe(plumber())
 	.pipe(concat('style.css'))
@@ -76,6 +78,7 @@ gulp.task('compress', function() {
 	return gulp.src([
 					'js/libs/jquery.js',
 					'js/libs/bootstrap.min.js',
+					'node_modules/slick-carousel/slick/slick.min.js',
 					'js/common.js'])
 		.pipe(plumber())
 		.pipe(concat('global.min.js'))
