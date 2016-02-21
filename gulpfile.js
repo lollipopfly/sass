@@ -31,9 +31,8 @@ gulp.task('sass', function() {
 		  'node_modules/slick-carousel/slick/slick.css',
 		  'node_modules/slick-carousel/slick/slick-theme.css',
 		  'sass/style.scss',])
-	.pipe(plumber())
 	.pipe(concat('style.css'))
-	//.pipe(sass().on('error', error))
+	.pipe(sass().on('error', error))
 	.pipe(sass({outputStyle: 'compressed'}))
 	.pipe(postcss(processors))
 	.pipe(gulp.dest('css/'));
@@ -115,7 +114,7 @@ gulp.task('watch', function() {
 	Notify
 \*------------------------------------*/
 
-gulp.task('notify', function() {
+gulp.task('notify', function(a) {
   var date = new Date();
   gulp.src("css/style.css")
   .pipe(notify("Css was compiled! at " + date));
