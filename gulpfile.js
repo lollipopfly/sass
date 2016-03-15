@@ -29,7 +29,7 @@ gulp.task('sass', function() {
 
   return gulp.src([
   		  'css/bootstrap.min.css',
-		  'sass/main.scss',
+		  'sass/_main.scss',
 		  'css/sprite.css',
 		  'node_modules/slick-carousel/slick/slick.css',
 		  'node_modules/slick-carousel/slick/slick-theme.css',
