@@ -3,6 +3,7 @@ var gulp         = require('gulp'),
 	browserSync  = require('browser-sync').create(),
 	sass         = require('gulp-sass'),
 	size         = require('postcss-size'),
+	pxtorem      = require('postcss-pxtorem'),
 	autoprefixer = require('autoprefixer'),
 	concat       = require('gulp-concat'),
 	uglify       = require('gulp-uglify'),
@@ -17,12 +18,14 @@ var gulp         = require('gulp'),
 \*------------------------------------*/
 
 gulp.task('sass', function() {
-  var processors = [
+	var processors = [
 	autoprefixer({ browsers: ['last 20 versions'] }),
-	require('postcss-font-magician')({}),
-	 selectors,
-	 size,
-  ];
+		selectors,
+		size,
+		pxtorem({
+			replace: true
+		})
+];
 
   return gulp.src([
   		  'css/bootstrap.min.css',

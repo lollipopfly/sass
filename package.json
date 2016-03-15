@@ -19,8 +19,8 @@
     "gulp-plumber": "*",
     "gulp-uglify": "*",
     "postcss-custom-selectors": "*",
-    "postcss-font-magician": "*",
     "postcss-size": "*",
+    "postcss-pxtorem": "*",
     "remove": "*",
     "slick-carousel": "*"
   },
