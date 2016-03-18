@@ -95,10 +95,11 @@ gulp.task('compress', function() {
 
 gulp.task('serve', ['sass'], function() {
 	browserSync.init({
-	server: ""
+	server: "",
+	'port': 3000
 	});
 
-	// gulp.watch("/sass/*.scss", { interval: 500 }, ['sass']);
+	gulp.watch("js/build/*.js", { interval: 500 }, ['compress']);
 	gulp.watch("css/style.css").on('change', browserSync.reload);
 	gulp.watch("index.html").on('change', browserSync.reload);
 });
