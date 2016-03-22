@@ -101,11 +101,59 @@ textarea {
 	}
 }
 
+
+/**
+* ----------------------------------------------------------------------------------------------------
+* COMPONENTS
+* ----------------------------------------------------------------------------------------------------
+*/
+
+.burger {
+	display: none;
+	background: none;
+	padding: 0;
+	outline: none;
+	border: none;
+	cursor: pointer;
+
+	&:hover .burger__row {
+		background: red;
+	}
+}
+
+.burger__row {
+	display: block;
+	width: 32px;
+	height: 5px;
+	background: blue;
+	margin-bottom: 4px;
+	transition: background .4s;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+nav {
+	display: none;
+}
+
 /**
 * ----------------------------------------------------------------------------------------------------
 * @MEDIA
 * ----------------------------------------------------------------------------------------------------
 */
+@media screen and (min-width:767px) {
+	nav {
+		display: none !important;
+	}
+}
+
+@media screen and (max-width:767px) {
+	.burger {
+		display: block;
+	}
+}
 
 @media screen and (max-width:320px) {
 	body {
