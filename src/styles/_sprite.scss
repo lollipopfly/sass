@@ -1,0 +1,162 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$basket-social-name: 'basket-social';
+$basket-social-x: 21px;
+$basket-social-y: 56px;
+$basket-social-offset-x: -21px;
+$basket-social-offset-y: -56px;
+$basket-social-width: 17px;
+$basket-social-height: 11px;
+$basket-social-total-width: 220px;
+$basket-social-total-height: 81px;
+$basket-social-image: '../../public/images/sprite.png';
+$basket-social: (21px, 56px, -21px, -56px, 17px, 11px, 220px, 81px, '../../public/images/sprite.png', 'basket-social', );
+$busket-white-name: 'busket-white';
+$busket-white-x: 0px;
+$busket-white-y: 56px;
+$busket-white-offset-x: 0px;
+$busket-white-offset-y: -56px;
+$busket-white-width: 20px;
+$busket-white-height: 13px;
+$busket-white-total-width: 220px;
+$busket-white-total-height: 81px;
+$busket-white-image: '../../public/images/sprite.png';
+$busket-white: (0px, 56px, 0px, -56px, 20px, 13px, 220px, 81px, '../../public/images/sprite.png', 'busket-white', );
+$facebook-name: 'facebook';
+$facebook-x: 0px;
+$facebook-y: 70px;
+$facebook-offset-x: 0px;
+$facebook-offset-y: -70px;
+$facebook-width: 6px;
+$facebook-height: 11px;
+$facebook-total-width: 220px;
+$facebook-total-height: 81px;
+$facebook-image: '../../public/images/sprite.png';
+$facebook: (0px, 70px, 0px, -70px, 6px, 11px, 220px, 81px, '../../public/images/sprite.png', 'facebook', );
+$header-top-arr-name: 'header-top-arr';
+$header-top-arr-x: 65px;
+$header-top-arr-y: 56px;
+$header-top-arr-offset-x: -65px;
+$header-top-arr-offset-y: -56px;
+$header-top-arr-width: 10px;
+$header-top-arr-height: 10px;
+$header-top-arr-total-width: 220px;
+$header-top-arr-total-height: 81px;
+$header-top-arr-image: '../../public/images/sprite.png';
+$header-top-arr: (65px, 56px, -65px, -56px, 10px, 10px, 220px, 81px, '../../public/images/sprite.png', 'header-top-arr', );
+$instagram-name: 'instagram';
+$instagram-x: 53px;
+$instagram-y: 56px;
+$instagram-offset-x: -53px;
+$instagram-offset-y: -56px;
+$instagram-width: 11px;
+$instagram-height: 11px;
+$instagram-total-width: 220px;
+$instagram-total-height: 81px;
+$instagram-image: '../../public/images/sprite.png';
+$instagram: (53px, 56px, -53px, -56px, 11px, 11px, 220px, 81px, '../../public/images/sprite.png', 'instagram', );
+$logo-name: 'logo';
+$logo-x: 0px;
+$logo-y: 0px;
+$logo-offset-x: 0px;
+$logo-offset-y: 0px;
+$logo-width: 220px;
+$logo-height: 55px;
+$logo-total-width: 220px;
+$logo-total-height: 81px;
+$logo-image: '../../public/images/sprite.png';
+$logo: (0px, 0px, 0px, 0px, 220px, 55px, 220px, 81px, '../../public/images/sprite.png', 'logo', );
+$twitter-name: 'twitter';
+$twitter-x: 39px;
+$twitter-y: 56px;
+$twitter-offset-x: -39px;
+$twitter-offset-y: -56px;
+$twitter-width: 13px;
+$twitter-height: 11px;
+$twitter-total-width: 220px;
+$twitter-total-height: 81px;
+$twitter-image: '../../public/images/sprite.png';
+$twitter: (39px, 56px, -39px, -56px, 13px, 11px, 220px, 81px, '../../public/images/sprite.png', 'twitter', );
+$spritesheet-width: 220px;
+$spritesheet-height: 81px;
+$spritesheet-image: '../../public/images/sprite.png';
+$spritesheet-sprites: ($basket-social, $busket-white, $facebook, $header-top-arr, $instagram, $logo, $twitter, );
+$spritesheet: (220px, 81px, '../../public/images/sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

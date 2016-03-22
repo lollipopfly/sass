@@ -30,17 +30,15 @@ gulp.task('sass', function() {
 ];
 
   return gulp.src([
-  		  'css/bootstrap.min.css',
-		  'sass/_main.scss',
-		  'css/sprite.css',
-		  'node_modules/slick-carousel/slick/slick.css',
-		  'node_modules/slick-carousel/slick/slick-theme.css',
-		  'sass/style.scss',])
+		  'src/styles/_sprite.scss',
+		  // 'node_modules/slick-carousel/slick/slick.css',
+		  // 'node_modules/slick-carousel/slick/slick-theme.css',
+		  'src/styles/app.scss',])
 	.pipe(concat('style.css'))
 	.pipe(sass().on('error', error))
 	.pipe(sass({outputStyle: 'compressed'}))
 	.pipe(postcss(processors))
-	.pipe(gulp.dest('css/'));
+	.pipe(gulp.dest('dist/css/'));
 });
 
 
@@ -49,11 +47,12 @@ gulp.task('sass', function() {
 \*------------------------------------*/
 
 gulp.task('sprite', function () {
-  var spriteData = gulp.src('images/main/*.png').pipe(spritesmith({
+  var spriteData = gulp.src('public/images/main/*.png').pipe(spritesmith({
 	imgName: 'sprite.png',
-	cssName: 'sprite.css',
-	imgPath: '../images/sprite.png',
+	cssName: '_sprite.scss',
+	imgPath: '../../public/images/sprite.png',
 	padding: 1,
+	'cssFormat': 'scss',
 	cssOpts: {
 	// for remove prefix icon-
 	cssSelector: function (sprite) {
@@ -64,10 +63,10 @@ gulp.task('sprite', function () {
 }));
 
   var imgStream = spriteData.img
-	.pipe(gulp.dest('images/'));
+	.pipe(gulp.dest('public/images/'));
 
   var cssStream = spriteData.css
-	.pipe(gulp.dest('css/'));
+	.pipe(gulp.dest('src/styles/'));
 
   return merge(imgStream, cssStream);
   // return spriteData.pipe(gulp.dest('css/'));
@@ -80,14 +79,13 @@ gulp.task('sprite', function () {
 
 gulp.task('compress', function() {
 	return gulp.src([
-			'js/libs/jquery.js',
-			'js/libs/bootstrap.min.js',
-			'node_modules/slick-carousel/slick/slick.min.js',
-			'js/common.js'])
+			'src/js/jquery.js',
+			// 'node_modules/slick-carousel/slick/slick.min.js',
+			'src/js/common.js'])
 		.pipe(plumber())
 		.pipe(concat('global.min.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('js/build/'));
+		.pipe(gulp.dest('dist/js/'));
 });
 
 
@@ -101,8 +99,8 @@ gulp.task('serve', ['sass'], function() {
 	'port': 3000
 	});
 
-	gulp.watch("js/build/*.js").on('change', browserSync.reload);
-	gulp.watch("css/style.css").on('change', browserSync.reload);
+	gulp.watch("dist/js/**/*.js").on('change', browserSync.reload);
+	gulp.watch("dist/css/style.css").on('change', browserSync.reload);
 	gulp.watch("index.html").on('change', browserSync.reload);
 });
 
@@ -111,9 +109,9 @@ gulp.task('serve', ['sass'], function() {
 \*------------------------------------*/
 
 gulp.task('watch', function() {
-	gulp.watch('sass/**/*.scss', { interval: 500 }, ['sass', 'notify']);
-	gulp.watch('js/common.js', { interval: 500 }, ['compress', 'notify']);
-  // gulp.watch('images/main/*.png', { interval: 500 }, ['sprite']);
+	gulp.watch('src/styles/**/*.scss', { interval: 500 }, ['sass', 'notify']);
+	gulp.watch('src/js/common.js', { interval: 500 }, ['compress', 'notify']);
+  // gulp.watch('public/images/main/*.png', { interval: 500 }, ['sprite']);
 });
 
 /*------------------------------------*\
@@ -122,7 +120,7 @@ gulp.task('watch', function() {
 
 gulp.task('notify', function(a) {
   var date = new Date();
-  gulp.src("css/style.css")
+  gulp.src("public/css/style.css")
   .pipe(notify("Css was compiled! at " + date));
 });
 
@@ -130,7 +128,7 @@ gulp.task('notify', function(a) {
 	Run default gulp tasks
 \*------------------------------------*/
 
-gulp.task('default', ['sass', 'compress', 'watch']);
+gulp.task('default', ['sass', 'sprite', 'compress', 'watch']);
 
 
 /**

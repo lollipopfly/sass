@@ -1,0 +1,114 @@
+/**
+* ----------------------------------------------------------------------------------------------------
+* MIXINS
+* ----------------------------------------------------------------------------------------------------
+*/
+
+@custom-selector :--hoverous :hover, :active, :focus;
+
+
+/**
+* ----------------------------------------------------------------------------------------------------
+* MAIN STYLES
+* ----------------------------------------------------------------------------------------------------
+*/
+
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	line-height: 0;
+	clear: both;
+	visibility: hidden;
+	display: inline-block;
+}
+
+// Stcky Footer
+html, body {
+	height: 100%;
+}
+
+.wrap {
+	min-height: 100%;
+	margin-bottom: -142px;
+}
+
+.wrap:after {
+	content: "";
+	display: block;
+}
+
+.footer, .wrap:after {
+	height: 142px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color:red;
+	outline: none !important; // for firefox
+
+	&:--hoverous {
+		color: $black;
+	}
+}
+
+h2 {
+	color:red;
+}
+
+h3 {
+	color:red;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+	border: #e3e3e3;
+	outline: none;
+	height: 40px;
+	padding-left: 10px;
+}
+
+textarea {
+	height: auto;
+}
+
+
+/**
+* ----------------------------------------------------------------------------------------------------
+* Helpers
+* ----------------------------------------------------------------------------------------------------
+*/
+
+.btn {
+	display: inline-block;
+	padding: 9px 20px;
+	color: $black;
+	border: 1px solid $black;
+	text-transform: uppercase;
+
+	&:--hoverous {
+		text-decoration: none;
+		background: $gray;
+		color: $white;
+		transition: .4s color;
+		transition: .3s background;
+	}
+}
+
+/**
+* ----------------------------------------------------------------------------------------------------
+* @MEDIA
+* ----------------------------------------------------------------------------------------------------
+*/
+
+@media screen and (max-width:320px) {
+	body {
+		width: 320px;
+	}
+}
