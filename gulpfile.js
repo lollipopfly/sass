@@ -1,17 +1,18 @@
-var gulp         = require('gulp'),
-	postcss      = require('gulp-postcss'),
-	browserSync  = require('browser-sync').create(),
-	sass         = require('gulp-sass'),
-	size         = require('postcss-size'),
-	pxtorem      = require('postcss-pxtorem'),
-	autoprefixer = require('autoprefixer'),
-	concat       = require('gulp-concat'),
-	uglify       = require('gulp-uglify'),
-	selectors    = require('postcss-custom-selectors'),
-	spritesmith  = require('gulp.spritesmith'),
-	plumber      = require('gulp-plumber'),
-	notify       = require("gulp-notify"),
-	merge        = require('merge-stream');
+var gulp          = require('gulp'),
+	postcss       = require('gulp-postcss'),
+	browserSync   = require('browser-sync').create(),
+	sass          = require('gulp-sass'),
+	size          = require('postcss-size'),
+	pxtorem       = require('postcss-pxtorem'),
+	colorFunction = require("postcss-color-function"),
+	autoprefixer  = require('autoprefixer'),
+	concat        = require('gulp-concat'),
+	uglify        = require('gulp-uglify'),
+	selectors     = require('postcss-custom-selectors'),
+	spritesmith   = require('gulp.spritesmith'),
+	plumber       = require('gulp-plumber'),
+	notify        = require("gulp-notify"),
+	merge         = require('merge-stream');
 
 /*------------------------------------*\
 	Sass
@@ -22,6 +23,7 @@ gulp.task('sass', function() {
 	autoprefixer({ browsers: ['last 20 versions'] }),
 		selectors,
 		size,
+		colorFunction,
 		pxtorem({
 			replace: true
 		})
@@ -78,10 +80,10 @@ gulp.task('sprite', function () {
 
 gulp.task('compress', function() {
 	return gulp.src([
-					'js/libs/jquery.js',
-					'js/libs/bootstrap.min.js',
-					'node_modules/slick-carousel/slick/slick.min.js',
-					'js/common.js'])
+			'js/libs/jquery.js',
+			'js/libs/bootstrap.min.js',
+			'node_modules/slick-carousel/slick/slick.min.js',
+			'js/common.js'])
 		.pipe(plumber())
 		.pipe(concat('global.min.js'))
 		.pipe(uglify())
@@ -99,7 +101,7 @@ gulp.task('serve', ['sass'], function() {
 	'port': 3000
 	});
 
-	gulp.watch("js/build/*.js", { interval: 500 }, ['compress']);
+	gulp.watch("js/build/*.js").on('change', browserSync.reload);
 	gulp.watch("css/style.css").on('change', browserSync.reload);
 	gulp.watch("index.html").on('change', browserSync.reload);
 });

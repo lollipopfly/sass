@@ -18,9 +18,10 @@
     "gulp-notify": "*",
     "gulp-plumber": "*",
     "gulp-uglify": "*",
+    "postcss-color-function": "^2.0.1",
     "postcss-custom-selectors": "*",
-    "postcss-size": "*",
     "postcss-pxtorem": "*",
+    "postcss-size": "*",
     "remove": "*",
     "slick-carousel": "*"
   },
