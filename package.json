@@ -6,7 +6,6 @@
   "dependencies": {
     "gulp": "*",
     "gulp-postcss": "*",
-    "gulp-uglify": "*",
     "autoprefixer": "*",
     "gulp.spritesmith": "*",
     "gulp-sass": "*",
