@@ -13,14 +13,13 @@
 * ----------------------------------------------------------------------------------------------------
 */
 
-.clearfix:after {
-	content: "";
-	display: block;
-	height: 0;
-	line-height: 0;
-	clear: both;
-	visibility: hidden;
-	display: inline-block;
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 // Stcky Footer

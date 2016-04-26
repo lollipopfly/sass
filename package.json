@@ -20,6 +20,7 @@
     "postcss-color-function": "^2.0.1",
     "postcss-custom-selectors": "*",
     "postcss-pxtorem": "*",
+    "postcss-sass-extend": "0.0.1",
     "postcss-size": "*",
     "remove": "*",
     "slick-carousel": "*"
