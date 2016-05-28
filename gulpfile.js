@@ -1,5 +1,6 @@
 var gulp          = require('gulp'),
     postcss       = require('gulp-postcss'),
+    cssnano       = require('gulp-cssnano'),
     browserSync   = require('browser-sync').create(),
     sass          = require('gulp-sass'),
     size          = require('postcss-size'),
@@ -38,8 +39,15 @@ gulp.task('sass', function() {
         'src/styles/app.scss',])
     .pipe(concat('style.css'))
     .pipe(sass().on('error', error))
-    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(sass({
+        // outputStyle: 'compressed'
+    }))
     .pipe(postcss(processors))
+    // .pipe(cssnano({
+    //     discardComments: {
+    //         removeAll: true
+    //     }
+    // }))
     .pipe(gulp.dest('dist/css/'));
 });
 
