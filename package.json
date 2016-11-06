@@ -4,27 +4,28 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
-    "autoprefixer": "*",
-    "gulp": "*",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-postcss": "^6.1.1",
-    "gulp-sass": "*",
-    "gulp.spritesmith": "*",
-    "merge-stream": "*",
-    "postcss-custom-selectors": "^3.0.0"
+    "slick-carousel": "*"
   },
   "devDependencies": {
+    "autoprefixer": "*",
     "browser-sync": "*",
+    "gulp": "*",
     "gulp-concat": "*",
+    "gulp-cssnano": "^2.1.2",
     "gulp-notify": "*",
     "gulp-plumber": "*",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "*",
     "gulp-uglify": "*",
+    "gulp-util": "^3.0.7",
+    "gulp.spritesmith": "*",
+    "merge-stream": "*",
     "postcss-color-function": "^2.0.1",
+    "postcss-custom-selectors": "^3.0.0",
     "postcss-pxtorem": "*",
     "postcss-sass-extend": "0.0.1",
     "postcss-size": "*",
-    "remove": "*",
-    "slick-carousel": "*"
+    "remove": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
