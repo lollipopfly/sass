@@ -1,5 +1,11 @@
 var gulp          = require('gulp'),
     postcss       = require('gulp-postcss'),
+    stylelint     = require('stylelint'),
+    stylelintrc   = require('./stylelintrc.config.js'),
+    scss          = require('postcss-scss'),
+    postcssVars   = require('postcss-simple-vars'),
+    postcssImport = require("postcss-import"),
+    reporter      = require('postcss-reporter'),
     cssnano       = require('gulp-cssnano'),
     browserSync   = require('browser-sync').create(),
     sass          = require('gulp-sass'),
@@ -23,35 +29,42 @@ var gulp          = require('gulp'),
 
 gulp.task('sass', function() {
   var processors = [
-  autoprefixer({ browsers: ['last 20 versions'] }),
-      selectors,
-      postcssExtend,
-      size,
-      colorFunction,
-      pxtorem({
-          replace: true
-      })
+    postcssImport(),
+    stylelint(stylelintrc),
+    postcssVars,
+    autoprefixer({ browsers: ['last 20 versions'] }),
+    selectors,
+    postcssExtend,
+    size,
+    colorFunction,
+    // pxtorem({
+    //     replace: true
+    // })
+    // require('postcss-browser-reporter'),
+    reporter({
+      clearMessages: true,
+    }),
 ];
 
   return gulp.src([
-      'src/styles/_sprite.scss',
+      // 'src/styles/_sprite.scss',
       // 'node_modules/slick-carousel/slick/slick.css',
       // 'node_modules/slick-carousel/slick/slick-theme.css',
       'src/styles/app.scss',])
-    .pipe(concat('style.css'))
-    .pipe(sass().on('error', function(message){
-      gutil.log(gutil.colors.red(message));
-      this.emit('end');
-    }))
-    .pipe(sass({
-        // outputStyle: 'compressed'
-    }))
+    // .pipe(sass().on('error', function(message){
+    //   gutil.log(gutil.colors.red(message));
+    //   this.emit('end');
+    // }))
+    // .pipe(sass({
+    //     // outputStyle: 'compressed'
+    // }))
     .pipe(postcss(processors))
     // .pipe(cssnano({
     //     discardComments: {
     //         removeAll: true
     //     }
     // }))
+    .pipe(concat('style.css'))
     .pipe(gulp.dest('dist/css/'));
 });
 
@@ -142,4 +155,4 @@ gulp.task('notify', function(a) {
 	Run default gulp tasks
 \*------------------------------------*/
 
-gulp.task('default', ['sass', 'sprite', 'compress', 'watch']);
+gulp.task('default', ['sass', 'compress', 'watch']);

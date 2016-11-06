@@ -4,6 +4,7 @@ node_modules/
 *.psd
 *.gitkeep
 config.codekit
+.stylelintrc
 map/
 .DS_Store
 dist/
