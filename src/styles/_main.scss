@@ -25,6 +25,11 @@
 html, body {
   height: 100%;
 }
+@media screen and (max-width: 320px) {
+  body {
+    width: 320px;
+  }
+}
 
 .wrap {
   min-height: 100%;
